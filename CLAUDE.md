@@ -11,7 +11,7 @@ A simple weather web app — built and tested locally, then deployed to a free h
 - [x] Phase 1: Project setup
 - [x] Phase 2: Core features
 - [x] Phase 3: Polish + map + POIs
-- [ ] Phase 4: Deploy to Vercel
+- [x] Phase 4: Deploy to Vercel — https://weatherapp-demo-omega.vercel.app
 
 ## Tech Stack
 
@@ -66,14 +66,14 @@ Search radius: 2000m, capped at 60 results per category.
 |----------|-------------|
 | `OPENWEATHER_API_KEY` | Free key from openweathermap.org — stored in `config.js` locally |
 
-For Vercel deployment the key will need to be set as an environment variable.
+For Vercel deployment the key is set as `OPENWEATHER_API_KEY` in the Vercel project environment variables. `app.js` detects `typeof CONFIG === 'undefined'` to switch between direct API (local) and `/api/` proxy routes (Vercel).
 
-## Deployment (Phase 4 — not yet done)
+## Deployment
+
+Live at: **https://weatherapp-demo-omega.vercel.app**
+GitHub: https://github.com/lewtucker/WeatherApp_demo
 
 ```bash
-# First time
-vercel
-
-# Production
+# Redeploy
 vercel --prod
 ```
