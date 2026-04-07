@@ -1,0 +1,379 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #bae6fd 0%, #e0f2fe 40%, #ddd6fe 100%);
+  color: #1e293b;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 960px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #bae6fd;
+  background: #fff;
+  color: #1e293b;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.search-bar input:focus {
+  border-color: #7c3aed;
+}
+
+.search-bar input::placeholder {
+  color: #94a3b8;
+}
+
+.search-bar button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.search-bar button:hover {
+  opacity: 0.88;
+}
+
+/* City disambiguation picker */
+
+.city-picker {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(100, 60, 180, 0.1);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.city-picker-label {
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7c3aed;
+  background: #f5f3ff;
+  border-bottom: 1px solid #ede9fe;
+}
+
+.city-option {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  font-size: 0.92rem;
+  color: #1e293b;
+  transition: background 0.12s;
+}
+
+.city-option:last-child {
+  border-bottom: none;
+}
+
+.city-option:hover {
+  background: #f5f3ff;
+}
+
+.city-option .city-option-sub {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 0.1rem;
+}
+
+.error {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+  color: #be123c;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading {
+  text-align: center;
+  color: #6d28d9;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Side-by-side layout */
+
+.content-row {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.weather-card {
+  flex: 0 0 320px;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(100, 60, 180, 0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.card-header p {
+  color: #7c3aed;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.local-time {
+  margin-top: 0.4rem;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  text-transform: none !important;
+  letter-spacing: -0.5px;
+}
+
+.card-header img {
+  width: 64px;
+  height: 64px;
+}
+
+.temp-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.unit-toggle {
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #c4b5fd;
+  background: transparent;
+  color: #7c3aed;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.unit-toggle:hover {
+  background: #ede9fe;
+  border-color: #7c3aed;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.detail {
+  background: linear-gradient(135deg, #ede9fe, #e0f2fe);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail .label {
+  font-size: 0.75rem;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.detail span:last-child {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Resize handle */
+
+.resize-handle {
+  flex: 0 0 10px;
+  align-self: stretch;
+  cursor: col-resize;
+  position: relative;
+  margin: 0 2px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.resize-handle:hover,
+.resize-handle.dragging {
+  background: rgba(124, 58, 237, 0.15);
+}
+
+.resize-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3px;
+  height: 36px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(124, 58, 237, 0.35) 0,
+    rgba(124, 58, 237, 0.35) 3px,
+    transparent 3px,
+    transparent 7px
+  );
+}
+
+/* Map section */
+
+.map-section {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 32px rgba(100, 60, 180, 0.12);
+}
+
+.map-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.poi-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.poi-btn {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.poi-btn[data-category="food"]    { border-color: #f97316; }
+.poi-btn[data-category="park"]    { border-color: #22c55e; }
+.poi-btn[data-category="culture"] { border-color: #a855f7; }
+
+.poi-btn.active[data-category="food"]    { background: #f97316; color: #fff; }
+.poi-btn.active[data-category="park"]    { background: #22c55e; color: #fff; }
+.poi-btn.active[data-category="culture"] { background: #a855f7; color: #fff; }
+
+#map {
+  height: 360px;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+/* Responsive: stack on narrow screens */
+
+@media (max-width: 680px) {
+  .content-row {
+    flex-direction: column;
+  }
+
+  .weather-card {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .map-section {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .resize-handle {
+    display: none;
+  }
+
+  #map {
+    height: 280px;
+  }
+
+  .details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

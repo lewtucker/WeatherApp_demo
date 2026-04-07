@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>Weather</h1>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        id="city-input"
+        placeholder="Enter a city..."
+        autocomplete="off"
+      />
+      <button id="search-btn">Search</button>
+    </div>
+
+    <div id="city-picker" class="city-picker hidden"></div>
+
+    <div id="error" class="error hidden"></div>
+    <div id="loading" class="loading hidden">Fetching weather...</div>
+
+    <div class="content-row">
+      <div id="weather-card" class="weather-card hidden">
+        <div class="card-header">
+          <div>
+            <h2 id="city-name"></h2>
+            <p id="weather-desc"></p>
+            <p id="local-time" class="local-time"></p>
+          </div>
+          <img id="weather-icon" src="" alt="" />
+        </div>
+
+        <div class="temp-row">
+          <span id="temperature" class="temp"></span>
+          <button id="unit-toggle" class="unit-toggle">Switch to °F</button>
+        </div>
+
+        <div class="details">
+          <div class="detail">
+            <span class="label">Feels like</span>
+            <span id="feels-like"></span>
+          </div>
+          <div class="detail">
+            <span class="label">Humidity</span>
+            <span id="humidity"></span>
+          </div>
+          <div class="detail">
+            <span class="label">Wind</span>
+            <span id="wind"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="resize-handle" class="resize-handle hidden"></div>
+
+      <div id="map-section" class="map-section hidden">
+        <h3 class="map-heading">Nearby Places</h3>
+        <div class="poi-buttons">
+          <button class="poi-btn" data-category="food">🍽 Food &amp; Drink</button>
+          <button class="poi-btn" data-category="park">🌳 Parks</button>
+          <button class="poi-btn" data-category="culture">🏛 Culture</button>
+        </div>
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
